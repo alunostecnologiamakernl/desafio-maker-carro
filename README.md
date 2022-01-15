@@ -33,7 +33,7 @@
 ![image](https://user-images.githubusercontent.com/97037684/149604310-757fc2de-12f4-42d0-af68-24ad4580e187.png)
 ![image](https://user-images.githubusercontent.com/97037684/149604316-5f62bd6c-f99c-4fe1-a8e3-a50be3000e15.png)
 
-## Software/Programadores/Lib
+## Software/Programadores
 ![image](https://user-images.githubusercontent.com/97037684/149604328-18ccbfb7-d2e7-46ae-af7a-60322ae77f92.png)
 ![image](https://user-images.githubusercontent.com/97037684/149604340-1b87d677-1190-46c4-b149-4aad75e5c989.png)
 
