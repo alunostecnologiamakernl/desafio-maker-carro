@@ -1,12 +1,11 @@
 # Desafio Maker - Carro Robótico
-
-
-![image](https://user-images.githubusercontent.com/97037684/149436288-0bd3f940-cd03-4864-8060-44fff54319f0.png)
-![image](https://user-images.githubusercontent.com/97037684/149436402-5dbfe703-0b52-4b14-bed6-3f454d6e9b7b.png)
+![image](https://user-images.githubusercontent.com/97037684/149604070-1bfaf19c-3a3c-4108-98b0-a8a49d0561d1.png)
+![image](https://user-images.githubusercontent.com/97037684/149604076-67453c9a-c9c4-4bbc-b0cb-25bd0cdb1306.png)
 
 ## Materiais/Componentes usados
 
-![image](https://user-images.githubusercontent.com/97037684/149436690-402c0864-398c-4b01-a1e7-bad040ecfd35.png)
+![image](https://user-images.githubusercontent.com/97037684/149604175-fb236c19-ee21-405c-b9de-1eab942d8d0d.png)
+
 - Arduino UNO
   - Documentação: https://www.circuito.io/blog/arduino-uno-pinout/
   - Datasheet: https://www.arduino.cc/en/uploads/Main/arduino-uno-schematic.pdf
@@ -20,43 +19,30 @@
 
 
 ## Esquema Elétrico e orientações de montagem
-
-![image](https://user-images.githubusercontent.com/97037684/149436772-2809fafa-9e39-4d2b-9918-075e6aa630e5.png)
-![image](https://user-images.githubusercontent.com/97037684/149436786-d5b94fce-2d0c-40e1-a09d-0546730b3106.png)
-![image](https://user-images.githubusercontent.com/97037684/149436803-855ac2b5-73c9-4de7-84a4-25a5b1135efe.png)
-![image](https://user-images.githubusercontent.com/97037684/149436811-6fd6fa00-c7d1-4bd5-a44b-f6dbf22fc123.png)
-![image](https://user-images.githubusercontent.com/97037684/149436819-3190cc94-4adc-4ce6-9cc3-5ef9921d07b4.png)
-![image](https://user-images.githubusercontent.com/97037684/149436964-51c4ed35-2a64-4d23-897a-8470c159cb8c.png)
-![image](https://user-images.githubusercontent.com/97037684/149437055-976a6408-906b-4656-a211-0beb9631cda2.png)
-![image](https://user-images.githubusercontent.com/97037684/149437139-b3d0852b-5a05-4ebc-bf9d-e2d760dd73fc.png)
-![image](https://user-images.githubusercontent.com/97037684/149437188-61e7e1e3-c319-471a-b88e-93e90858aecc.png)
-![image](https://user-images.githubusercontent.com/97037684/149437214-9261f60e-8a61-4efe-a1ac-dace2a6fdaf8.png)
-![image](https://user-images.githubusercontent.com/97037684/149437234-6eb1792a-b3e1-46b5-9266-c823821d3c7b.png)
-![image](https://user-images.githubusercontent.com/97037684/149437379-b28c8b50-e0df-481a-b2f2-5de1aae07346.png)
-![image](https://user-images.githubusercontent.com/97037684/149437395-786a5146-7b26-4aee-a01f-b2f8c3379b25.png)
-![image](https://user-images.githubusercontent.com/97037684/149437414-c641f3f4-bb95-4f69-ae03-deba370d97b8.png)
-
-
-
-
+![image](https://user-images.githubusercontent.com/97037684/149604223-a0a32de0-d3a2-45de-a997-0319788333da.png)
+![image](https://user-images.githubusercontent.com/97037684/149604231-b64e09b4-c40a-4fef-8f12-3d917d7c71d8.png)
+![image](https://user-images.githubusercontent.com/97037684/149604240-f92132a0-8661-4748-9aff-4b07992f405a.png)
+![image](https://user-images.githubusercontent.com/97037684/149604247-1a0c69ee-d5c0-4d91-92a2-6da4d3aa5a29.png)
+![image](https://user-images.githubusercontent.com/97037684/149604256-24bf69c9-70f6-4ade-b419-6894b9b724d2.png)
+![image](https://user-images.githubusercontent.com/97037684/149604269-2691e9c5-c865-4563-a619-1f75e7233efc.png)
+![image](https://user-images.githubusercontent.com/97037684/149604277-052b5311-b294-4467-b707-1a2ad62af2ac.png)
+![image](https://user-images.githubusercontent.com/97037684/149604285-65a1c755-34a5-4c1b-bade-8cd88c26ff83.png)
+![image](https://user-images.githubusercontent.com/97037684/149604292-a1d23711-fa65-4297-9c71-d38bf523d541.png)
+![image](https://user-images.githubusercontent.com/97037684/149604297-3d2094f3-52f2-48ee-a243-8a26a022d99c.png)
+![image](https://user-images.githubusercontent.com/97037684/149604306-0b9550f2-755e-4c50-a47a-aacae0f2a43f.png)
+![image](https://user-images.githubusercontent.com/97037684/149604310-757fc2de-12f4-42d0-af68-24ad4580e187.png)
+![image](https://user-images.githubusercontent.com/97037684/149604316-5f62bd6c-f99c-4fe1-a8e3-a50be3000e15.png)
 
 ## Software/Programadores/Lib
+![image](https://user-images.githubusercontent.com/97037684/149604328-18ccbfb7-d2e7-46ae-af7a-60322ae77f92.png)
+![image](https://user-images.githubusercontent.com/97037684/149604340-1b87d677-1190-46c4-b149-4aad75e5c989.png)
 
-![image](https://user-images.githubusercontent.com/97037684/149438975-e19ec5f9-556a-4a13-8fd8-1e28da2f949c.png)
-![image](https://user-images.githubusercontent.com/97037684/149439003-7a28e03c-7d6a-49c8-bcac-dda701425785.png)
-
-
+Em
 ## Bibliotecas (lib) PWMservo
-
-![image](https://user-images.githubusercontent.com/97037684/149439122-99ef5a1a-8078-4b90-b4a8-adf987f1756c.png)
-Baixar aqui:  https://www.arduino.cc/reference/en/libraries/pwmservo/
-
-
+![image](https://user-images.githubusercontent.com/97037684/149604394-66f461a2-93ca-4992-b888-486ab7280d6b.png)
+Em
 ## Mapeamento de portas usadas no projeto
-
-![image](https://user-images.githubusercontent.com/97037684/149439390-79dab4dd-f7c0-45e5-9980-f57f2634adf5.png)
-
-
+![image](https://user-images.githubusercontent.com/97037684/149604501-6c3d0ab1-54dc-4418-8859-51659ea783ee.png)
 
 ## Código Arduino
 
