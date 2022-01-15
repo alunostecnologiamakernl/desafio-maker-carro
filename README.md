@@ -50,10 +50,10 @@ Em
 ```cpp
 // Desafio Maker carro Robô
 // Grupo de estudo Nova Lima
-
+//**********************************************************************************
 #include <Arduino.h>
 #include <PWMServo.h>
-//*********************************************************************************************
+//**********************************************************************************
 // Declarações funções:
 
 // Função para ler a distância
@@ -66,38 +66,52 @@ void virarDireita();            // Função para virar a direita
 void virarEsquerda();           // Função para virar a Esquerda
 void MovimentoTesteDistancia(); // Função de giro da cabeça para análise dos obstáculos
 void LerQuina();                // Função para habilitar a varredura da quina
-//*********************************************************************************************
+
 // criando o objeto servo
-
 PWMServo giroOlhos;
-
-
-//*********************************************************************************************
-//Variáveis
-
-double distancia = 0.0; // registra a distância lida pelo sensor
-double distanciaOlhoFrente = 0.0; // registra a distância lida pelo sensor quando andando a frente
-double distanciaOlhoDireita = 0.0; // registra a distância lida pelo sensor quando olhando direira
-double distanciaOlhoEsquerda = 0.0; // registra a distância lida pelo sensor quando olhando esquerda
-int tempoGastoNoGiroServo = 500; // usada para configurar o tempo que a cabeça leva para girar na posição configurada
-int tempoEmRe = 300; // usada para definir o tempo que vai ficar andando de ré caso o obstáculo esteja muito perto
-int tempoVirarRobo = 300; // usada para definir o tempo que vai acionar os motores ao virar
-double distanciaParaVirar = 20.0; // usada para configurar a distancia mínima para virar do obstáculo a frente e se manter a frente
-double distanciaParaVoltar = 15.0; // usada para configurar a distancia mínima do obstáculo e precisa voltar
-double filtro = 1.00; // usada para filtra e não processar valores de distancia menor que o valor configurado
-bool habilitaVerQWuina = 1; // usada para habilitar a leitura de quina
-bool dedoNosensor = 0; // uada para registrar se esta com o dedo no sensor LDR ou não
+//**********************************************************************************
+//variáveis
+int distancia = 0; // registra a distância lida pelo sensor
+int distanciaOlhoFrente = 1; // registra a distância lida pelo sensor quando andando a frente
+int distanciaOlhoDireita = 1; // registra a distância lida pelo sensor quando olhando direira
+int distanciaOlhoEsquerda = 1; // registra a distância lida pelo sensor quando olhando esquerda
+int tempoGastoNoGiroServo = 400; // usada para configurar o tempo que a cabeça leva para girar na posição configurada
+unsigned int tempoEmRe = 300; // usada para definir o tempo que vai ficar andando de ré caso o obstáculo esteja muito perto
+unsigned int PrevisaotempoEmRe = millis(); // variável de contagem de tempo
+unsigned int tempoVirarRobo = 400; // usada para definir o tempo que vai acionar os motores ao virar
+unsigned int PrevisaotempoVirarRobo = millis(); // variável de contagem de tempo
+int distanciaParaVirar = 25; // usada para configurar a distancia mínima para virar do obstáculo a frente e se manter a frente
+int distanciaParaVoltar = 18; // usada para configurar a distancia mínima do obstáculo e precisa voltar
+int filtro = 1; // usada para filtra e não processar valores de distancia menor que o valor configurado
+bool habilitaVerQWuina = 0; // usada para habilitar a leitura de quina
+bool dedoNosensor = 0; // usada para registrar se esta com o dedo no sensor LDR ou não
 int verQuina = 0; // usada para registro da posição de visualização de quina
-unsigned int tempoVerQuina = 500; // tempo de leitura do giro servo de quina
+int luzAmbiente=0; // registra quantidade luz ambiente no LDR
+int refLDR=0;  // valor minimo de luz tampado com o dedo
+unsigned int tempoVerQuina = 300; // tempo de leitura do giro servo de quina
 unsigned int PrevisaotempoVerQuina = millis(); // variável de contagem de tempo
-int anguloQuinaEsq = 100; // angulo de giro da quina esquerda
-int anguloQuinaDir = 60; // angulo de giro da quina direita
-unsigned long _ABVAR_1_tempo = 0UL ;
+int anguloQuinaEsq = 110; // ângulo de giro da quina esquerda
+int anguloQuinaDir = 50; // ângulo de giro da quina direita
+int angulocentral = 85; // ângulo de giro central
+int anguloVerEsquerda = 170; // ângulo de giro da  esquerda
+int anguloVerDireita = 10; // ângulo de giro da  direita
+int mediaDosPot = 0; // usado para calcular a média dos potenciometros
+bool podeAndarFrente=1;//  verifica se pode ir a frente
+bool podeVirar=1;  // verifica se pode virar
+int pwmMin=100; // valor min velocidade pwm
+int pwmMax=240;  // valor max velocidade pwm
+int tempViraRoboMin=200; // min tempo para virar
+int tempViraRoboMax=400;  // max tempo para virar
+int tempVoltarRoboMin=200;   // min tempo para voltar
+int tempVoltarRoboMax=400;  // min tempo para voltar
+int distVirarMin =20;  // distância min para virar
+int distVirarMax =35;  // distância max para virar
+int distVoltarMin =15;  // distância min para voltar
+int distVoltarMax =20;  // distância max para voltar
 
-//**************************************************************************************************
+//***********************************************************************************
 void setup() // configurações iniciais
 {
-
   giroOlhos.attach(SERVO_PIN_A); // inicializa o servo no pin 9
   digitalWrite(3, 0); // inicializa o pino grito com 0 desligado
   Serial.begin(9600); // inicializa a serial
@@ -109,78 +123,87 @@ void setup() // configurações iniciais
   pinMode(7, OUTPUT);
   // posicionando o servo motor em aproximadamente 90 graus para frente
   giroOlhos.write(85);
-  // aguardando 1s para iniciar o robô
-  delay(1000);
-  // _ABVAR_1_tempo = 0UL ;
+  for (size_t i = 0; i < 100; i++)  // 100 leituras de luz
+  {
+    luzAmbiente+=analogRead(A0); // carrega luz na variável
+    delay(10); // tempo de leitura
+  }
+  luzAmbiente=luzAmbiente/100; // média
+  refLDR=luzAmbiente/8; // referência para o dedo no botão
 }
-//**************************************************************************************************
 
+
+//************************************************************************************
 void loop() // programa do loop
 {
-  float valPot1 = analogRead(A1); // lendo o potenciômetro da esquerda e registrando na memória
-  float valPot2 = analogRead(A2); // lendo o potenciômetro da direita e registrando na memória
-
-  valPot1 = map(valPot1, 0, 1023, 80, 254); // transformando o valor lido no Pot1 entre 0 a 1023 e fazendo o proporcional entre 80 a 254
-  valPot2 = map(valPot2, 0, 1023, 80, 254); // transformando o valor lido no Pot2 entre 0 a 1023 e fazendo o proporcional entre 80 a 254
-
-  // Serial.print("val:  ");
-  // Serial.println(val);
-
+  //ajustes de iluminação do botão maker
+  for (size_t i = 0; i < 100; i++)
+  {
+    luzAmbiente+=analogRead(A0);
+  }
+  luzAmbiente=luzAmbiente/100; //média
+  int valPot1 = analogRead(A1); // lendo o potenciômetro da esquerda e registrando na memória
+  int valPot2 = analogRead(A2); // lendo o potenciômetro da direita e registrando na memória
+  valPot1 = map(valPot1, 0, 1023, pwmMin, pwmMax); // transformando o valor lido no Pot1 entre 0 a 1023 e fazendo o proporcional entre 80 a 254
+  valPot2 = map(valPot2, 0, 1023, pwmMin, pwmMax); // transformando o valor lido no Pot2 entre 0 a 1023 e fazendo o proporcional entre 80 a 254
+  mediaDosPot = (valPot1+valPot2)/2; // média dos pwm dos motres
+  tempoVirarRobo = map(mediaDosPot, pwmMin, pwmMax, tempViraRoboMax, tempViraRoboMin); // variaçao do tempo para virar em relaçao a velocidade
+  tempoEmRe= map(mediaDosPot, pwmMin, pwmMax, tempVoltarRoboMax, tempVoltarRoboMin); // variaçao do tempo para Ré em relaçao a velocidade
+  distanciaParaVoltar = map(mediaDosPot, pwmMin, pwmMax, distVoltarMin, distVoltarMax); // variaçao da distancia para Ré em relaçao a velocidade
+  distanciaParaVirar = map(mediaDosPot, pwmMin, pwmMax, distVirarMin, distVirarMax); // variaçao da distancia para virar em relaçao a velocidade
   analogWrite(5, valPot1); // escrevendo na porta pwm5 o valor calculado para ajuste de velocidade do motor esquerdo
   analogWrite(6, valPot2); // escrevendo na porta pwm6 o valor calculado para ajuste de velocidade do motor direito
-
   distancia = lendoDistancia(3, 2); // variável distância registra o valor lido pelo sensor (grito no D3 e escuta o echo no D2)
-
-  if (distancia > 0.0) // filtro para eliminar falsas leitura de 0
+  if (distancia > filtro) // filtro para eliminar falsas leitura 
   {
-    distanciaOlhoFrente = distancia; // distancia olho pra frente recebe o valor lido da distância
-                                     //    Serial.print("dist");
-                                     //    Serial.print(" ");
-                                     //    Serial.print(distanciaOlhoFrente);
-                                     //    Serial.print(" ");
-                                     //    Serial.println();
-  }
-  if (((distanciaOlhoFrente) > (distanciaParaVirar))) // se a distancia olho frente for maior que a distancia mínima para virar?
+    distanciaOlhoFrente = distancia; // distancia olho pra frente recebe o valor lido da distância                              
+  }else distancia=40; // valores falsos 
+  if((millis() - PrevisaotempoVirarRobo) > tempoVirarRobo) // evitar delay nos giros do motor
   {
-    andarFrente(); // andar frente
+    podeVirar=1; // libera andar e analisar
+  }else podeVirar=0; // nao anda a frente
+  if ((millis() - PrevisaotempoEmRe) > tempoEmRe) // evitar delay na ré do motor
+  {
+    podeAndarFrente=1; // libera andar a frente
+  }else podeAndarFrente=0; // nao anda a frente
+   // se a distancia frente > distancia mínima para virar e andar frente e virar ok?
+  if ((distanciaOlhoFrente > distanciaParaVirar)&&(podeAndarFrente==1)&&(podeVirar==1))
+  {
+     andarFrente(); // andar frente
   }
   else // se não, quer dizer é menor que a distancia mínima
   {
-    if (distanciaOlhoFrente < distanciaParaVoltar) // se a distância olho frente for menor que a mínima e precisa dar ré
+    // se a distância olho frente for menor que a mínima e precisa dar ré  
+    if (distanciaOlhoFrente < distanciaParaVoltar) 
     {
       andarTras(); // andar de ré
+      PrevisaotempoEmRe=millis(); // registro de tempo em ré
     }
-    else // se não, quer dizer é maior que 15cm mas ainda é menor que 25cm
+    else // se não, quer dizer é maior que min para voltar mas ainda é menor que min para andar
     {
+    if(podeVirar==1) // verifica se pode virar se outra açao não está em processo
+      {
       pararRobo(); // para o robô
-
-      MovimentoTesteDistancia(); // função de testes distância
-
-      if (((distancia) > (filtro))) // teste do filtro
+      MovimentoTesteDistancia(); // função de testes distância 
+       // comparação da maior dist
+      if (((distanciaOlhoDireita) >= (distanciaOlhoEsquerda)))
       {
-        distanciaOlhoEsquerda = distancia; // registro dist a esquerda
+        virarDireita(); // vira a direita
+        PrevisaotempoVirarRobo =millis(); // registor de tempo virar
       }
-      if (((distanciaOlhoDireita) >= (distanciaOlhoEsquerda))) // comparação da maior dist
+      else // se nao
       {
-        virarDireita();                                       // vira a direita
-        if (((distanciaOlhoDireita) < (distanciaParaVoltar))) // teste após ação se chegou muito perto
-        {
-          andarTras(); // anda de ré
-        }
-      }
-      else
-      {
-        virarEsquerda();                                       // vira a esquerda
-        if (((distanciaOlhoEsquerda) < (distanciaParaVoltar))) // teste após ação se chegou muito perto
-        {
-          andarTras(); // anda de ré
-        }
+        virarEsquerda();// vira a esquerda
+        PrevisaotempoVirarRobo =millis(); // registor de tempo virar
+       
       }
       giroOlhos.write(85); // sensor a frente
       verQuina = 0;        // inicializa as etapas da quina quando habilitado
+     }
+
     }
   }
-  if (analogRead(A0) < 8) // teste do botão maker de luz
+  if (luzAmbiente < refLDR) // teste do botão maker de luz
   {
     if (dedoNosensor == 0) // se o dedo não estava na posição
     {
@@ -199,11 +222,10 @@ void loop() // programa do loop
   else
     giroOlhos.write(85); // Mantem o olho parado a frente
 }
-//******************************************************************************************************************
-
+//**************************************************************************************
 // Funções
-
-int lendoDistancia(int Dgrito, int Decho)
+// sensor ultrassônico
+int lendoDistancia(int Dgrito, int Decho) 
 {
   long tempo;
   pinMode(Dgrito, OUTPUT);
@@ -219,7 +241,8 @@ int lendoDistancia(int Dgrito, int Decho)
     return false;
   return tempo;
 }
-//******************************************************************************************************************
+//****************************************************************************************
+// acionando os motores na lógica para frente
 void andarFrente()
 {
   digitalWrite(18, 0); // andar frente
@@ -227,18 +250,17 @@ void andarFrente()
   digitalWrite(4, 1);
   digitalWrite(7, 0);
 }
-
-//*******************************************************************************************************************
+//*****************************************************************************************
+// acionando os motores na lógica para trás
 void andarTras()
 {
   digitalWrite(18, 1);
   digitalWrite(19, 0);
   digitalWrite(4, 0);
   digitalWrite(7, 1);
-  delay(tempoEmRe);
 }
-
-//*******************************************************************************************************************
+//******************************************************************************************
+// acionando os motores na lógica para parar
 void pararRobo()
 {
   digitalWrite(18, 0);
@@ -246,47 +268,49 @@ void pararRobo()
   digitalWrite(4, 0);
   digitalWrite(7, 0);
 }
-
-//********************************************************************************************************************
+//*******************************************************************************************
+// acionando os motores na lógica para virar a direita
 void virarDireita()
 {
   digitalWrite(18, 0);
   digitalWrite(19, 0);
   digitalWrite(4, 1);
   digitalWrite(7, 0);
-  delay(tempoVirarRobo);
 }
-
-//*********************************************************************************************************************
+//*********************************************************************************************
+// acionando os motores na lógica para virar a esquerda
 void virarEsquerda()
 {
   digitalWrite(18, 0);
   digitalWrite(19, 1);
   digitalWrite(4, 0);
   digitalWrite(7, 0);
-  delay(tempoVirarRobo);
 }
-
-//**********************************************************************************************************************
+//********************************************************************************************
+// função para realizar os movimentos de teste de distância direita e esquerda
 void MovimentoTesteDistancia()
 {
-  giroOlhos.write(10); // vira o olho para direita
+  giroOlhos.write(anguloVerDireita); // vira o olho para direita
   delay(tempoGastoNoGiroServo);
-  distancia = lendoDistancia(3, 2);
-  if (((distancia) > (0.0)))
+  int testeDistanciaOlhoDireita =lendoDistancia(3, 2);
+  if (distancia> filtro)
   {
-    distanciaOlhoDireita = distancia;
+    distanciaOlhoDireita =testeDistanciaOlhoDireita;
   }
-  giroOlhos.write(85); // vira o olho para o centro
+  giroOlhos.write(anguloVerEsquerda); // vira o olho para esquerda
   delay(tempoGastoNoGiroServo);
-  giroOlhos.write(170); // vira o olho para esquerda
-  delay(tempoGastoNoGiroServo);
-  distancia = lendoDistancia(3, 2);
+
+  int TesteDistanciaOlhoEsquerda = lendoDistancia(3, 2);
+  if (distancia> filtro)
+  {
+    distanciaOlhoEsquerda = TesteDistanciaOlhoEsquerda;
+  }
   giroOlhos.write(85);
   delay(tempoGastoNoGiroServo);
+ 
 }
-
-//***********************************************************************************************************************
+//*******************************************************************************************
+// função para leitura de quina andando a frente
 void LerQuina()
 {
   if ((verQuina == 0) && ((millis() - PrevisaotempoVerQuina) > tempoVerQuina))
@@ -314,6 +338,8 @@ void LerQuina()
     giroOlhos.write(85);
   }
 }
+
+//Fim muito Obrigado
 ```
 
 ## Equipamentos Adicionais
