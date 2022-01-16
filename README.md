@@ -365,6 +365,15 @@ Falando em obstáculos, como nosso análise de distância é calculado como a bi
 02 Capacitore cerâmicos 100nf 50v em paralelo com cada motor do robô
 
 
+## Fotos e vídeos do processo de desenvolvimento, resultados e aprendizado do grupo
+
+Sala de aula organizada para o Grupo de estudo
+![WhatsApp Image 2022-01-06 at 15 41 56](https://user-images.githubusercontent.com/97037684/149644374-08d3fdc7-95e0-47b3-b1d1-e5a161365896.jpeg)
+
+Suporte de elevação do robô, para ajudar nos testes no desenvolvimento da lógica
+![WhatsApp Image 2022-01-12 at 12 26 45 (1)](https://user-images.githubusercontent.com/97037684/149644573-ad92dee8-2540-4e36-b361-801209458f03.jpeg)
+
+
 ## Agradecimento finais:
 
 Todos alunos e integrantes do grupo de estudo de Nova Lima "Desafio Maker- Carro Robô"!
