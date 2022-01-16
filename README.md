@@ -104,12 +104,12 @@ bool podeAndarFrente=1;//  verifica se pode ir a frente
 bool podeVirar=1;  // verifica se pode virar
 int pwmMin=100; // valor min velocidade pwm
 int pwmMax=240;  // valor max velocidade pwm
-int tempViraRoboMin=200; // min tempo para virar
-int tempViraRoboMax=500;  // max tempo para virar
-int tempVoltarRoboMin=200;   // min tempo para voltar
-int tempVoltarRoboMax=500;  // min tempo para voltar
+int tempViraRoboMin=100; // min tempo para virar
+int tempViraRoboMax=700;  // max tempo para virar
+int tempVoltarRoboMin=10;   // min tempo para voltar
+int tempVoltarRoboMax=50;  // min tempo para voltar
 int distVirarMin =20;  // distância min para virar
-int distVirarMax =40;  // distância max para virar
+int distVirarMax =35;  // distância max para virar
 int distVoltarMin =10;  // distância min para voltar
 int distVoltarMax =25;  // distância max para voltar
 
@@ -133,7 +133,7 @@ void setup() // configurações iniciais
     delay(10); // tempo de leitura
   }
   luzAmbiente=luzAmbiente/100; // média
-  refLDR=luzAmbiente/8; // referência para o dedo no botão
+  refLDR=luzAmbiente/5; // referência para o dedo no botão
 }
 
 
@@ -150,13 +150,15 @@ void loop() // programa do loop
   int valPot2 = analogRead(A2); // lendo o potenciômetro da direita e registrando na memória
   valPot1 = map(valPot1, 0, 1023, pwmMin, pwmMax); // transformando o valor lido no Pot1 entre 0 a 1023 e fazendo o proporcional entre 80 a 254
   valPot2 = map(valPot2, 0, 1023, pwmMin, pwmMax); // transformando o valor lido no Pot2 entre 0 a 1023 e fazendo o proporcional entre 80 a 254
+  analogWrite(5, valPot1); // escrevendo na porta pwm5 o valor calculado para ajuste de velocidade do motor esquerdo
+  analogWrite(6, valPot2); // escrevendo na porta pwm6 o valor calculado para ajuste de velocidade do motor direito
+  
   mediaDosPot = (valPot1+valPot2)/2; // média dos pwm dos motres
   tempoVirarRobo = map(mediaDosPot, pwmMin, pwmMax, tempViraRoboMax, tempViraRoboMin); // variaçao do tempo para virar em relaçao a velocidade
   tempoEmRe= map(mediaDosPot, pwmMin, pwmMax, tempVoltarRoboMax, tempVoltarRoboMin); // variaçao do tempo para Ré em relaçao a velocidade
   distanciaParaVoltar = map(mediaDosPot, pwmMin, pwmMax, distVoltarMin, distVoltarMax); // variaçao da distancia para Ré em relaçao a velocidade
   distanciaParaVirar = map(mediaDosPot, pwmMin, pwmMax, distVirarMin, distVirarMax); // variaçao da distancia para virar em relaçao a velocidade
-  analogWrite(5, valPot1); // escrevendo na porta pwm5 o valor calculado para ajuste de velocidade do motor esquerdo
-  analogWrite(6, valPot2); // escrevendo na porta pwm6 o valor calculado para ajuste de velocidade do motor direito
+  tempoVerQuina=map(mediaDosPot, pwmMin, pwmMax, 400, 200); //variação do tempo de giro na funçao ver quina 
   distancia = lendoDistancia(3, 2); // variável distância registra o valor lido pelo sensor (grito no D3 e escuta o echo no D2)
   if (distancia > filtro) // filtro para eliminar falsas leitura 
   {
