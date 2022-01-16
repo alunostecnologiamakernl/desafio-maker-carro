@@ -373,6 +373,19 @@ Sala de aula organizada para o Grupo de estudo
 Suporte de elevação do robô, para ajudar nos testes no desenvolvimento da lógica
 ![WhatsApp Image 2022-01-12 at 12 26 45 (1)](https://user-images.githubusercontent.com/97037684/149644573-ad92dee8-2540-4e36-b361-801209458f03.jpeg)
 
+Início da programação em blocos
+![WhatsApp Image 2022-01-12 at 12 26 45 (3)](https://user-images.githubusercontent.com/97037684/149644629-50f46559-4e5d-4fb8-a145-9af97f2050f0.jpeg)
+
+Os primeiros testes, e os primeiros erros, kkk
+
+![image](https://user-images.githubusercontent.com/97037684/149644831-b7fa0ad2-4ec8-47cb-af3c-4ca81c1fc299.png)
+![image](https://user-images.githubusercontent.com/97037684/149645125-70a03653-2fc9-456b-afef-3785f4e0d361.png)
+
+
+
+
+
+
 
 ## Agradecimento finais:
 
