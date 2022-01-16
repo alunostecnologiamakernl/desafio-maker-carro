@@ -488,7 +488,7 @@ Toda equipe da Secretaria de Educação de Nova Lima pelo Apoio e incentivo a ed
 
 Pedro Henrique Dornas
 
-Érica Gouveia
+Érica Gouvêa
 
 Silvânia Lourença
 
