@@ -75,6 +75,43 @@ void LerQuina();                // Função para habilitar a varredura da quina
 PWMServo giroOlhos;
 //**********************************************************************************
 //variáveis
+// possíveis ajustes nas variáveis para resultados na prática
+// Esse valores podem ser alterados de acordo com a bateria usada, motores, ponte H, lembrando que temos os limites de 1 a 254 para que considere alguma alteração
+int pwmMin=100; // valor min velocidade pwm esse é o valor mínimo enviado com o analogwrite para o pwm  e controle de velocidade
+int pwmMax=240;  // valor max velocidade pwm esse é o valor máximo enviado com o analogwrite para o pwm  e controle de velocidade
+
+// Esses são os tempos em ms para realizar os processos de virar a esquerda e direita quando detectado obstáculos
+// O auto ajuste em relaçao a velocidade e inversamente proporcional está configurado entre o ranger abaixo
+// conforme sua configuração de hardware e ambiente use esses valores para configurar conforme seu cenário.
+//  somente evitem tempos abaixo de 200ms para o robô não entrar em loop
+
+//tempo para virar
+int tempViraRoboMin=100; // min tempo para virar
+int tempViraRoboMax=700;  // max tempo para virar
+
+//tempo para voltar
+int tempVoltarRoboMin=10;   // min tempo para voltar
+int tempVoltarRoboMax=50;  // min tempo para voltar
+
+//Ranger proporcional a velocidade para configuração dos limites de distância
+// distância para analisar e fazer o giro a esquerda e direita
+int distVirarMin =20;  // distância min para virar
+int distVirarMax =35;  // distância max para virar
+
+// distância para voltar, pois não vai conseguir virar
+int distVoltarMin =10;  // distância min para voltar
+int distVoltarMax =25;  // distância max para voltar
+
+//Valor angular do giro da cabeça servo
+//quando andando a frente e a função quina habilitado
+int anguloQuinaEsq = 110; // ângulo de giro da quina esquerda
+int anguloQuinaDir = 50; // ângulo de giro da quina direita
+
+// Quando detectado um obstáculo e vai realizar o análise das direções
+int angulocentral = 85; // ângulo de giro central
+int anguloVerEsquerda = 170; // ângulo de giro da  esquerda
+int anguloVerDireita = 10; // ângulo de giro da  direita
+
 int distancia = 0; // registra a distância lida pelo sensor
 int distanciaOlhoFrente = 1; // registra a distância lida pelo sensor quando andando a frente
 int distanciaOlhoDireita = 1; // registra a distância lida pelo sensor quando olhando direira
@@ -94,24 +131,10 @@ int luzAmbiente=0; // registra quantidade luz ambiente no LDR
 int refLDR=0;  // valor minimo de luz tampado com o dedo
 unsigned int tempoVerQuina = 300; // tempo de leitura do giro servo de quina
 unsigned int PrevisaotempoVerQuina = millis(); // variável de contagem de tempo
-int anguloQuinaEsq = 110; // ângulo de giro da quina esquerda
-int anguloQuinaDir = 50; // ângulo de giro da quina direita
-int angulocentral = 85; // ângulo de giro central
-int anguloVerEsquerda = 170; // ângulo de giro da  esquerda
-int anguloVerDireita = 10; // ângulo de giro da  direita
 int mediaDosPot = 0; // usado para calcular a média dos potenciometros
 bool podeAndarFrente=1;//  verifica se pode ir a frente
 bool podeVirar=1;  // verifica se pode virar
-int pwmMin=100; // valor min velocidade pwm
-int pwmMax=240;  // valor max velocidade pwm
-int tempViraRoboMin=100; // min tempo para virar
-int tempViraRoboMax=700;  // max tempo para virar
-int tempVoltarRoboMin=10;   // min tempo para voltar
-int tempVoltarRoboMax=50;  // min tempo para voltar
-int distVirarMin =20;  // distância min para virar
-int distVirarMax =35;  // distância max para virar
-int distVoltarMin =10;  // distância min para voltar
-int distVoltarMax =25;  // distância max para voltar
+
 
 //***********************************************************************************
 void setup() // configurações iniciais
