@@ -464,9 +464,39 @@ https://user-images.githubusercontent.com/97037684/149646050-ffcd8454-06f8-4bba-
 
 Todos alunos e integrantes do grupo de estudo de Nova Lima "Desafio Maker- Carro Robô"!
 
+Integrantes:
+
+Brenda Stephany Sabino
+
+Luana Satiro Gonçalves
+
+Luiza Dias Neves Oliveira
+
+Matheus Dias Neves Oliveira 
+
+Rafael Augusto Lage Venir
+
+Gabriel Scoralik Silva Dias
+
+Arthur Henrique de Oliveira Gouvêa Braga
+
+Lucas Fernandes Dias
+
+Davi Lucas Souza
+
 Toda equipe da Secretaria de Educação de Nova Lima pelo Apoio e incentivo a educação Maker!
 
-Ao Professor de (Pensamento Computacional e Robótica) orientador do grupo, Fernando Fernandes Dias Neves!
+Pedro Henrique Dornas
+
+Érica Gouveia
+
+Silvânia Lourença
+
+Elaine Bragança
+
+Ao Professor de (Pensamento Computacional e Robótica) orientador do grupo!
+
+ Fernando Fernandes Dias Neves
 
 Ao idealizador do desafio Maker, Renato Aloi, pelo incentivo a educação tecnológica acessível a todos!  
 
