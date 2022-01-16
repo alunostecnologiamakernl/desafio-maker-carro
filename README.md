@@ -361,6 +361,7 @@ Falando em obstáculos, como nosso análise de distância é calculado como a bi
 
 
 01 Capacitor eletrolítico 680uf 25v em paralelo com a alimentação do servo motor, saindo da L298n
+
 02 Capacitore cerâmicos 100nf 50v em paralelo com cada motor do robô
 
 
