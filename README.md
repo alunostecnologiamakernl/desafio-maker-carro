@@ -37,10 +37,10 @@
 ![image](https://user-images.githubusercontent.com/97037684/149604328-18ccbfb7-d2e7-46ae-af7a-60322ae77f92.png)
 ![image](https://user-images.githubusercontent.com/97037684/149604340-1b87d677-1190-46c4-b149-4aad75e5c989.png)
 
-Em
+
 ## Bibliotecas (lib) PWMservo
 ![image](https://user-images.githubusercontent.com/97037684/149604394-66f461a2-93ca-4992-b888-486ab7280d6b.png)
-Em
+
 ## Mapeamento de portas usadas no projeto
 ![image](https://user-images.githubusercontent.com/97037684/149604501-6c3d0ab1-54dc-4418-8859-51659ea783ee.png)
 
@@ -101,13 +101,13 @@ bool podeVirar=1;  // verifica se pode virar
 int pwmMin=100; // valor min velocidade pwm
 int pwmMax=240;  // valor max velocidade pwm
 int tempViraRoboMin=200; // min tempo para virar
-int tempViraRoboMax=400;  // max tempo para virar
+int tempViraRoboMax=500;  // max tempo para virar
 int tempVoltarRoboMin=200;   // min tempo para voltar
-int tempVoltarRoboMax=400;  // min tempo para voltar
+int tempVoltarRoboMax=500;  // min tempo para voltar
 int distVirarMin =20;  // distância min para virar
-int distVirarMax =35;  // distância max para virar
-int distVoltarMin =15;  // distância min para voltar
-int distVoltarMax =20;  // distância max para voltar
+int distVirarMax =40;  // distância max para virar
+int distVoltarMin =10;  // distância min para voltar
+int distVoltarMax =25;  // distância max para voltar
 
 //***********************************************************************************
 void setup() // configurações iniciais
@@ -347,13 +347,13 @@ Após realizar toda montagem conforme as instruçoes nesse tutorial, baixar a li
 Bom parece complicado não acham? Mas fiquem calmo, o complicado faz parte da nossa inovação, todos os cáculos e formas para todos esses ajustes, já estão integrados no firmware, assim a única coisa que você vai precisar fazer é garantir que as baterias estejam boas, ligar o robô Maker e soltar em um ambiente sem obstáculos a frente, observando se a roda boba está bem retinha para não atrapalhar no ajuste e observar se o robô esta andando a frente corretamente. Caso não esteja assim, observe qual o lado ele está virando, mesmo com os dois motores atuando para girar para frente, na placa SigeControl temos 02 potenciômetro nativos e ligados na A1 e A2 do arduino, gire esses potenciômetros observando que a velocidade do motor irá alterar, assim use o potenciômetro A1 para controlar a velocidade do motor da esquerda e o potenciômetro A2 para controlar o motor da direita. Use a regra de deslocamento do veículo robô de 02 motores, caso esteja indo para direita por exemplo, aumente a velocidade do motor do mesmo lado, ou diminua a velocidade do motor do sentido oposto. Assim poderá realizar um ajuste fino de velocidade, alinhando o giro do movimento para frente o melhor possível.
 É inversamente proporcional, a relação da velocidade e o tempo, para acionamento das funções de direção do robô, e são automaticamente ajustadas, juntamente com os limites de distância de ostáculo para tomada de decisão. Afinal em relação a velocidade e distância, precisamos aplicar a lógica  diretamente proporcional, quanto maior a velocidade, maior deve ser os limitadores de distância para evitar colisõe sem o tempo suficiente para a parar. Então o nosso sistema está preparado com alguns padrões limites que podem ser alterados no código caso totalmente diferentes,  mas na maioria dos casos é somente ajustar a velocidade dos motores que as demais caracteristicas se ajustam.
 
-Itens e opções influenciadas no ajuste fino de velocidade:
+Itens e opções influenciadas no ajuste da velocidade:
 Valor analógico lido pelos potenciômetro:
 Esse valor é lido e transformado diretamente para duas portas PWM para o controle de velocidade do Motor 1 e Motor 2.
-Fazendo essas alterações o sistema faz uma média nos dois motores e calcula inversamente um tempo, usando como referência o millis(), para os acionamentos de giro a esquerda e direita, inversamente, pois, quanto maior a velocidade, menor será o tempo para realizar o trabalho de virar para a posição (esquerda e direita) definida pela logica de análise do robô.
-Outra alteração conforme explicado assim é nos limitadores de distância, onde temos duas referências, a miníma distância de uma objeto sólido que necessita de dar ré e a mínima distância de um objeto sólido que vai decidir entre as distâncias no análise da esquerda e direita qual será a tomada de decisão.
-Outra coisa que fizemos foi a criação do botão maker, um botão usando o LDR nativo da SigeControl com finalidade de habilitar ou não uma função especial de leitura de quina quando está andando a frente. O botão foi criado pois podemos ter resultados diferentes com o uso da função conforme as formas dos obstáculos que for realizar os testes.
-Falando em obstáculos, como nosso análise de distância é calculado como a biologia de deslocamento de um Morcego, quer dizer, emite um som, aguarda o retorno do eco e sabando a velocidade de propagação do som no ar, conseguimos com uso de bibliotecas, calcular a distância de um obstáculo, senso assim é recomendado o uso de obstáculos sólidos e que propague bem o eco, na verdade é quase tudo, apenas evitar tecidos, pelos, coisas que abafam o eco. Entre outras dicas de testes, use montágens de obstáculos formando ângulos de 90 graus para entender melhor a inteligência do sistema embarcado tomando decisões nos acionamentos dos motores. qualquer dúvida estamos a disposição para ajudar.
+Fazendo essas alterações o sistema faz uma média nos dois motores e calcula inversamente proporcional o tempo, usando como referência o millis(), para os acionamentos do giro à esquerda e direita. Inversamente, pois, quanto maior a velocidade, menor será o tempo para realizar o trabalho de virar para a posição (esquerda e direita) definida pela logica de análise do robô.
+Outra inovação conforme explicado acima é nos limitadores de distância, onde temos duas referências, a miníma distância de uma objeto sólido que necessita de retorno e a mínima distância de um objeto sólido que o sistema irá decidir no processo de análise de obstáculos a esquerda e direita.
+Outra coisa que fizemos foi a criação do botão maker, um botão usando o LDR nativo da SigeControl com finalidade de habilitar ou não uma função especial de leitura de quina, quando deslocando à frente sem obstáculos. O botão foi criado pois podemos ter resultados diferenciados com o uso da função ou não, conforme as formas e métodos de obstáculos usados nos testes.
+Falando em obstáculos, como nosso análise de distância é calculado como a biologia de deslocamento de um Morcego, quer dizer, emite um som, aguarda o retorno do eco e sabendo a velocidade de propagação do som no meio, conseguimos calcular a distância de um obstáculo, senso assim é recomendado o uso de obstáculos sólidos e que propague bem o eco,  evitando obstáculos de tecidos, porosos, revestimentos que abafam o eco. Outras dica para testes, use montágens de obstáculos formando ângulos de 90 graus para entender melhor a inteligência do sistema embarcado com decisões para o acionamento dos motores.
  
 
 
@@ -367,8 +367,12 @@ Falando em obstáculos, como nosso análise de distância é calculado como a bi
 ## Agradecimento finais:
 
 Todos alunos e integrantes do grupo de estudo de Nova Lima "Desafio Maker- Carro Robô"!
+
 Toda equipe da Secretaria de Educação de Nova Lima pelo Apoio e incentivo a educação Maker!
+
 Ao Professor de (Pensamento Computacional e Robótica) orientador do grupo, Fernando Fernandes Dias Neves!
+
 Ao idealizador do desafio Maker, Renato Aloi, pelo incentivo a educação tecnológica acessível a todos!  
-E a todos que de uma forma ou outra contribuíram com o nosso projeto e irá beneficiar com esse tutorial!
+
+E a todos que de uma forma ou outra, contribuíram com o nosso projeto e irá beneficiar com esse tutorial!
 
