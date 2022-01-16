@@ -434,7 +434,7 @@ https://user-images.githubusercontent.com/97037684/149646050-ffcd8454-06f8-4bba-
 
 
 
-## Agradecimento finais:
+## Agradecimentos:
 
 Todos alunos e integrantes do grupo de estudo de Nova Lima "Desafio Maker- Carro Robô"!
 
