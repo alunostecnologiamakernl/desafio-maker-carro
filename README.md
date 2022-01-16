@@ -1,3 +1,7 @@
+
+
+
+
 # Desafio Maker - Carro Robótico
 ![image](https://user-images.githubusercontent.com/97037684/149604070-1bfaf19c-3a3c-4108-98b0-a8a49d0561d1.png)
 ![image](https://user-images.githubusercontent.com/97037684/149604076-67453c9a-c9c4-4bbc-b0cb-25bd0cdb1306.png)
@@ -367,11 +371,14 @@ Falando em obstáculos, como nosso análise de distância é calculado como a bi
 
 ## Fotos e vídeos do processo de desenvolvimento, resultados e aprendizado do grupo
 
-Sala de aula organizada para o Grupo de estudo
+Sala de aula usada pelo grupo de estudo
 ![WhatsApp Image 2022-01-06 at 15 41 56](https://user-images.githubusercontent.com/97037684/149644374-08d3fdc7-95e0-47b3-b1d1-e5a161365896.jpeg)
+![WhatsApp Image 2022-01-06 at 15 42 18](https://user-images.githubusercontent.com/97037684/149645593-75ff8607-014e-485f-85b4-ebbb93dde4da.jpeg)
+
 
 Suporte de elevação do robô, para ajudar nos testes no desenvolvimento da lógica
 ![WhatsApp Image 2022-01-12 at 12 26 45 (1)](https://user-images.githubusercontent.com/97037684/149644573-ad92dee8-2540-4e36-b361-801209458f03.jpeg)
+![WhatsApp Image 2022-01-12 at 12 26 45](https://user-images.githubusercontent.com/97037684/149645612-58bdaaae-cf12-47e9-9e42-58f13c5e0529.jpeg)
 
 Início da programação em blocos
 ![WhatsApp Image 2022-01-12 at 12 26 45 (3)](https://user-images.githubusercontent.com/97037684/149644629-50f46559-4e5d-4fb8-a145-9af97f2050f0.jpeg)
@@ -381,6 +388,46 @@ Os primeiros testes, e os primeiros erros, kkk
 ![image](https://user-images.githubusercontent.com/97037684/149644831-b7fa0ad2-4ec8-47cb-af3c-4ca81c1fc299.png)
 ![image](https://user-images.githubusercontent.com/97037684/149645125-70a03653-2fc9-456b-afef-3785f4e0d361.png)
 
+
+
+
+https://user-images.githubusercontent.com/97037684/149645771-e457a2c1-f813-4634-add8-4c9ad5a38c7e.mp4
+
+
+
+https://user-images.githubusercontent.com/97037684/149645773-302f4fbc-4476-4442-adac-650ea123f9de.mp4
+
+
+
+
+https://user-images.githubusercontent.com/97037684/149645819-7f133fd0-6f8a-4d56-b0c1-1d29cea6a4c7.mp4
+
+
+
+## Testes finais
+
+
+
+https://user-images.githubusercontent.com/97037684/149646020-59e230fe-20b0-45bc-ad7a-104ca1fce77d.mp4
+
+
+
+
+https://user-images.githubusercontent.com/97037684/149646030-e3ce5ff7-9e21-47c0-a643-dc62ff949062.mp4
+
+
+
+
+
+https://user-images.githubusercontent.com/97037684/149646034-d2c8e083-a4e7-4813-9e0a-c57fa9880bb7.mp4
+
+
+
+
+
+
+
+https://user-images.githubusercontent.com/97037684/149646050-ffcd8454-06f8-4bba-91da-be9efcde7dd1.mp4
 
 
 
