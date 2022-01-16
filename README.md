@@ -8,7 +8,8 @@
 
 ## Materiais/Componentes usados
 
-![image](https://user-images.githubusercontent.com/97037684/149604175-fb236c19-ee21-405c-b9de-1eab942d8d0d.png)
+![image](https://user-images.githubusercontent.com/97037684/149678324-846d93b0-9e9d-4acd-bede-c119470b7296.png)
+
 
 - Arduino UNO
   - Documentação: https://www.circuito.io/blog/arduino-uno-pinout/
