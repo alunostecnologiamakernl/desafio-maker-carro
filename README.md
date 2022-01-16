@@ -484,6 +484,8 @@ Lucas Fernandes Dias
 
 Davi Lucas Souza
 
+
+
 Toda equipe da Secretaria de Educação de Nova Lima pelo Apoio e incentivo a educação Maker!
 
 Pedro Henrique Dornas
@@ -494,9 +496,13 @@ Silvânia Lourença
 
 Elaine Bragança
 
+
+
 Ao Professor de (Pensamento Computacional e Robótica) orientador do grupo!
 
  Fernando Fernandes Dias Neves
+
+
 
 Ao idealizador do desafio Maker, Renato Aloi, pelo incentivo a educação tecnológica acessível a todos!  
 
