@@ -383,7 +383,6 @@ Parece complicado, mas o complicado faz parte da nossa inovação, todos os cál
 Itens e opções influenciadas no ajuste da velocidade:
 
 Valor analógico lido pelos potenciômetros:
-
 Esse valor é lido e transformado diretamente para duas portas PWM para o controle de velocidade do Motor 1 e Motor 2.
 Fazendo essas alterações o sistema faz uma média nos dois motores e calcula inversamente proporcional o tempo, usando como referência o millis(), para os acionamentos do giro à esquerda e direita. Inversamente, pois, quanto maior a velocidade, menor será o tempo para realizar o trabalho de virar para a posição (esquerda e direita) definida pela lógica de análise do robô.
 
