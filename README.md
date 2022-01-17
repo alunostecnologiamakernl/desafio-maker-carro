@@ -464,6 +464,26 @@ https://user-images.githubusercontent.com/97037684/149646050-ffcd8454-06f8-4bba-
 
 
 
+## Na Secretaria de Educação de Nova Lima, incentivo pela iniciativa do grupo
+
+![Reunião sobre o projeto na secretaria de Educação 01](https://user-images.githubusercontent.com/97037684/149826066-41c9744e-4015-4a8f-b649-4352fdeda8e7.jpeg)
+
+![Reunião sobre o projeto na secretaria de Educação 02](https://user-images.githubusercontent.com/97037684/149826073-2cef80b3-241b-4a46-a5ce-862f5a193151.jpeg)
+
+![Reconhecimento da Secretaria de Educação de Nova Lima pela dedicação ao grupo 06](https://user-images.githubusercontent.com/97037684/149826090-13e7b787-222e-40ae-999b-4f97e262bace.jpeg)
+
+![Reconhecimento da Secretaria de Educação de Nova Lima pela dedicação ao grupo 05](https://user-images.githubusercontent.com/97037684/149826106-b388d60e-2083-48ee-8c33-86df8539f1ac.jpeg)
+
+![Reconhecimento da Secretaria de Educação de Nova Lima pela dedicação ao grupo 04](https://user-images.githubusercontent.com/97037684/149826119-bea18111-8dba-48ec-8846-84d82b0d6d9f.jpeg)
+
+![Reconhecimento da Secretaria de Educação de Nova Lima pela dedicação ao grupo 03](https://user-images.githubusercontent.com/97037684/149826144-eb058986-b58c-4735-bb7e-06ab15586463.jpeg)
+
+![Reconhecimento da Secretaria de Educação de Nova Lima pela dedicação ao grupo 02](https://user-images.githubusercontent.com/97037684/149826159-a6541c69-7078-457f-84d5-c9f4600135e2.jpeg)
+
+![Reconhecimento da Secretaria de Educação de Nova Lima pela dedicação ao grupo 01](https://user-images.githubusercontent.com/97037684/149826181-db0f5a76-c4a9-40a8-8604-93b6f44cd218.jpeg)
+
+![Equipe](https://user-images.githubusercontent.com/97037684/149826196-7a0cd1a6-6360-400c-bafb-432ac39c2865.jpeg)
+
 
 
 
@@ -515,3 +535,5 @@ Ao idealizador do desafio Maker, Renato Aloi, pelo incentivo a educação tecnol
 
 E a todos que de uma forma ou outra, contribuíram com o nosso projeto e irá beneficiar com esse tutorial!
 
+
+ 
